@@ -1,12 +1,38 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Header } from '@/components/layout/Header';
+import { WelcomeBanner } from '@/components/layout/WelcomeBanner';
+import { KanbanBoard } from '@/components/kanban/KanbanBoard';
+import { ChatBot } from '@/components/chat/ChatBot';
+import { AuthDialog } from '@/components/layout/AuthDialog';
+import { useAuth } from '@/hooks/useAuth';
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+  const { user, loading } = useAuth();
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse-glow w-16 h-16 rounded-full bg-primary/20" />
       </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      
+      <main className="py-6">
+        {!user && (
+          <WelcomeBanner onLogin={() => setAuthDialogOpen(true)} />
+        )}
+        
+        <KanbanBoard />
+      </main>
+
+      <ChatBot />
+
+      <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </div>
   );
 };
