@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
-import { Calendar, Flag, MoreHorizontal, Pencil, Trash2 } from 'lucide-react';
+import { Calendar, Flag, MoreHorizontal, Pencil, Trash2, Paperclip } from 'lucide-react';
 import { Task } from '@/types/task';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { format } from 'date-fns';
 import { it, enUS, es, de, fr } from 'date-fns/locale';
+import { supabase } from '@/integrations/supabase/client';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +24,18 @@ const locales = { it, en: enUS, es, de, fr };
 
 export const TaskCard = ({ task, index, onEdit, onDelete }: TaskCardProps) => {
   const { t, language } = useLanguage();
+  const [attachmentCount, setAttachmentCount] = useState(0);
+
+  useEffect(() => {
+    const fetchAttachmentCount = async () => {
+      const { count } = await supabase
+        .from('task_attachments')
+        .select('*', { count: 'exact', head: true })
+        .eq('task_id', task.id);
+      setAttachmentCount(count || 0);
+    };
+    fetchAttachmentCount();
+  }, [task.id]);
 
   const priorityColors = {
     low: 'bg-priority-low',
@@ -109,6 +123,14 @@ export const TaskCard = ({ task, index, onEdit, onDelete }: TaskCardProps) => {
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-secondary text-secondary-foreground">
                 <Calendar className="w-3 h-3" />
                 {formatDate(task.due_date)}
+              </span>
+            )}
+
+            {/* Attachments Count */}
+            {attachmentCount > 0 && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-secondary text-secondary-foreground">
+                <Paperclip className="w-3 h-3" />
+                {attachmentCount}
               </span>
             )}
           </div>

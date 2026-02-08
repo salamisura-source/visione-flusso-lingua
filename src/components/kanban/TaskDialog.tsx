@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
+import { AttachmentList } from './AttachmentList';
 
 interface TaskDialogProps {
   open: boolean;
@@ -154,6 +155,11 @@ export const TaskDialog = ({
               className="bg-input border-border"
             />
           </div>
+
+          {/* Attachments - only show for existing tasks */}
+          {task && (
+            <AttachmentList taskId={task.id} />
+          )}
 
           {/* Actions */}
           <div className="flex justify-end gap-3 pt-4">
