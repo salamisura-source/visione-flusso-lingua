@@ -36,6 +36,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.login': 'Accedi',
     'action.logout': 'Esci',
     'action.register': 'Registrati',
+    'action.search': 'Cerca per titolo...',
+    
+    // Filters
+    'filter.all_priorities': 'Tutte le priorità',
     
     // Forms
     'form.title': 'Titolo',
@@ -96,6 +100,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.login': 'Login',
     'action.logout': 'Logout',
     'action.register': 'Register',
+    'action.search': 'Search by title...',
+    
+    // Filters
+    'filter.all_priorities': 'All priorities',
     
     // Forms
     'form.title': 'Title',
@@ -156,6 +164,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.login': 'Iniciar sesión',
     'action.logout': 'Cerrar sesión',
     'action.register': 'Registrarse',
+    'action.search': 'Buscar por título...',
+    
+    // Filters
+    'filter.all_priorities': 'Todas las prioridades',
     
     // Forms
     'form.title': 'Título',
@@ -216,6 +228,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.login': 'Anmelden',
     'action.logout': 'Abmelden',
     'action.register': 'Registrieren',
+    'action.search': 'Nach Titel suchen...',
+    
+    // Filters
+    'filter.all_priorities': 'Alle Prioritäten',
     
     // Forms
     'form.title': 'Titel',
@@ -276,6 +292,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.login': 'Connexion',
     'action.logout': 'Déconnexion',
     'action.register': 'S\'inscrire',
+    'action.search': 'Rechercher par titre...',
+    
+    // Filters
+    'filter.all_priorities': 'Toutes les priorités',
     
     // Forms
     'form.title': 'Titre',

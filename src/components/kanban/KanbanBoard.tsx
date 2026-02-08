@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
-import { Task, TaskStatus } from '@/types/task';
+import { Task, TaskStatus, TaskPriority } from '@/types/task';
 import { KanbanColumn } from './KanbanColumn';
 import { TaskDialog } from './TaskDialog';
+import { TaskFilters } from './TaskFilters';
 import { useTasks } from '@/hooks/useTasks';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -14,6 +15,27 @@ export const KanbanBoard = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [defaultStatus, setDefaultStatus] = useState<TaskStatus>('not_started');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [priorityFilter, setPriorityFilter] = useState<TaskPriority | 'all'>('all');
+
+  const getFilteredTasksByStatus = useMemo(() => {
+    return (status: TaskStatus): Task[] => {
+      let filtered = getTasksByStatus(status);
+      
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase();
+        filtered = filtered.filter((task) => 
+          task.title.toLowerCase().includes(query)
+        );
+      }
+      
+      if (priorityFilter !== 'all') {
+        filtered = filtered.filter((task) => task.priority === priorityFilter);
+      }
+      
+      return filtered;
+    };
+  }, [getTasksByStatus, searchQuery, priorityFilter]);
 
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
@@ -67,13 +89,20 @@ export const KanbanBoard = () => {
 
   return (
     <>
+      <TaskFilters
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        priorityFilter={priorityFilter}
+        onPriorityChange={setPriorityFilter}
+      />
+      
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-thin">
           {STATUSES.map((status) => (
             <KanbanColumn
               key={status}
               status={status}
-              tasks={getTasksByStatus(status)}
+              tasks={getFilteredTasksByStatus(status)}
               onAddTask={handleAddTask}
               onEditTask={handleEditTask}
               onDeleteTask={handleDeleteTask}
