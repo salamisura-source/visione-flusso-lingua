@@ -37,6 +37,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.logout': 'Esci',
     'action.register': 'Registrati',
     'action.search': 'Cerca per titolo...',
+    'action.add_file': 'Aggiungi file',
+    'action.download': 'Scarica',
     
     // Filters
     'filter.all_priorities': 'Tutte le priorità',
@@ -49,6 +51,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.status': 'Stato',
     'form.email': 'Email',
     'form.password': 'Password',
+    'form.attachments': 'Allegati',
     
     // Messages
     'message.no_tasks': 'Nessun task',
@@ -58,6 +61,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'message.error': 'Si è verificato un errore',
     'message.login_required': 'Accedi per salvare i tuoi task',
     'message.welcome': 'Benvenuto!',
+    'message.no_attachments': 'Nessun allegato',
     
     // Chat
     'chat.title': 'Assistente AI',
@@ -101,6 +105,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.logout': 'Logout',
     'action.register': 'Register',
     'action.search': 'Search by title...',
+    'action.add_file': 'Add file',
+    'action.download': 'Download',
     
     // Filters
     'filter.all_priorities': 'All priorities',
@@ -113,6 +119,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.status': 'Status',
     'form.email': 'Email',
     'form.password': 'Password',
+    'form.attachments': 'Attachments',
     
     // Messages
     'message.no_tasks': 'No tasks',
@@ -122,6 +129,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'message.error': 'An error occurred',
     'message.login_required': 'Login to save your tasks',
     'message.welcome': 'Welcome!',
+    'message.no_attachments': 'No attachments',
     
     // Chat
     'chat.title': 'AI Assistant',
@@ -165,6 +173,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.logout': 'Cerrar sesión',
     'action.register': 'Registrarse',
     'action.search': 'Buscar por título...',
+    'action.add_file': 'Añadir archivo',
+    'action.download': 'Descargar',
     
     // Filters
     'filter.all_priorities': 'Todas las prioridades',
@@ -177,6 +187,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.status': 'Estado',
     'form.email': 'Correo electrónico',
     'form.password': 'Contraseña',
+    'form.attachments': 'Adjuntos',
     
     // Messages
     'message.no_tasks': 'Sin tareas',
@@ -186,6 +197,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'message.error': 'Ocurrió un error',
     'message.login_required': 'Inicia sesión para guardar tus tareas',
     'message.welcome': '¡Bienvenido!',
+    'message.no_attachments': 'Sin adjuntos',
     
     // Chat
     'chat.title': 'Asistente IA',
@@ -229,6 +241,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.logout': 'Abmelden',
     'action.register': 'Registrieren',
     'action.search': 'Nach Titel suchen...',
+    'action.add_file': 'Datei hinzufügen',
+    'action.download': 'Herunterladen',
     
     // Filters
     'filter.all_priorities': 'Alle Prioritäten',
@@ -241,6 +255,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.status': 'Status',
     'form.email': 'E-Mail',
     'form.password': 'Passwort',
+    'form.attachments': 'Anhänge',
     
     // Messages
     'message.no_tasks': 'Keine Aufgaben',
@@ -250,6 +265,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'message.error': 'Ein Fehler ist aufgetreten',
     'message.login_required': 'Melden Sie sich an, um Ihre Aufgaben zu speichern',
     'message.welcome': 'Willkommen!',
+    'message.no_attachments': 'Keine Anhänge',
     
     // Chat
     'chat.title': 'KI-Assistent',
@@ -293,6 +309,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'action.logout': 'Déconnexion',
     'action.register': 'S\'inscrire',
     'action.search': 'Rechercher par titre...',
+    'action.add_file': 'Ajouter un fichier',
+    'action.download': 'Télécharger',
     
     // Filters
     'filter.all_priorities': 'Toutes les priorités',
@@ -305,6 +323,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'form.status': 'Statut',
     'form.email': 'E-mail',
     'form.password': 'Mot de passe',
+    'form.attachments': 'Pièces jointes',
     
     // Messages
     'message.no_tasks': 'Aucune tâche',
@@ -314,6 +333,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'message.error': 'Une erreur est survenue',
     'message.login_required': 'Connectez-vous pour sauvegarder vos tâches',
     'message.welcome': 'Bienvenue !',
+    'message.no_attachments': 'Aucune pièce jointe',
     
     // Chat
     'chat.title': 'Assistant IA',
